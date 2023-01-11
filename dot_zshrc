@@ -69,7 +69,7 @@ source $HOME/.asdf/completions/asdf.bash
 source $HOME/.zsh-highlight
 
 # load z completion
-source /opt/homebrew/etc/profile.d/z.sh
+source $HOME/z.sh
 
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 setopt EXTENDED_HISTORY
