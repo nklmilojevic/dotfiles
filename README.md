@@ -2,4 +2,4 @@
 
 My dotfiles repo managed by chezmoi.
 
-To apply it run chezmoi init --apply --verbose https://github.com/nklmilojevic/dotfiles.git
+To apply it install chezmoi and run `chezmoi init --apply --verbose https://github.com/nklmilojevic/dotfiles.git`.
