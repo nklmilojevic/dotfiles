@@ -1,0 +1,4 @@
+[".zgenom"]
+refreshPeriod = "168h"
+type = "git-repo"
+url = "https://github.com/jandamm/zgenom.git"

@@ -1,0 +1,4 @@
+encryption = "age"
+[age]
+identity = "/Users/nkl/chezmoi.txt"
+recipient = "age1tt2qkyyn75l73r2esfp6gyyh22knsyza54m09408t2tp468ev5wqjs2hn5"

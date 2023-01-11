@@ -1,0 +1,75 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+DEFAULT_USER="nkl"
+
+
+# load zgenom
+source "${HOME}/.zgenom/zgenom.zsh"
+
+# if the init scipt doesn't exist
+if ! zgenom saved; then
+	echo "Creating a zgenom save"
+
+	zgenom oh-my-zsh
+
+	zgenom oh-my-zsh plugins/docker
+	zgenom oh-my-zsh plugins/git
+	zgenom oh-my-zsh plugins/helm
+	zgenom oh-my-zsh plugins/history
+	zgenom oh-my-zsh plugins/kubectl
+	zgenom oh-my-zsh plugins/macos
+	zgenom oh-my-zsh plugins/sudo
+	zgenom load zsh-users/zsh-autosuggestions
+	zgenom load zsh-users/zsh-syntax-highlighting
+
+	zgenom load zsh-users/zsh-completions src
+
+	zgenom load wulfgarpro/history-sync
+
+	zgenom load romkatv/powerlevel10k powerlevel10k
+	zgenom load junegunn/fzf
+
+	zgenom load junegunn/fzf shell/completion.zsh
+	zgenom load junegunn/fzf shell/key-bindings.zsh
+
+	zgenom save
+fi
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status background_jobs time)
+
+# Source the custom aliases
+source ~/.aliases
+
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+	OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+	zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+	zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export GO111MODULE="on"
+
+# Load asdf and completions
+. $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+
+# Dracula zsh higlight
+source $HOME/.zsh-highlight
+
+# load z completion
+source /opt/homebrew/etc/profile.d/z.sh
+
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+setopt EXTENDED_HISTORY

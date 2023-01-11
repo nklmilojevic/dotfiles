@@ -1,0 +1,18 @@
+[user]
+  name = Nikola Milojević
+  email = nikola@milojevic.me
+  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICrYywYsK/kocVOa48LjaOR2X10g7lwsB1PtkyBJX800
+[pull]
+  rebase = false
+[init]
+  defaultBranch = main
+[core]
+  excludesFile = ~/.gitignore
+[diff "ansible-vault"]
+  textconv = ansible-vault view
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg]
+	format = ssh

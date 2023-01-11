@@ -1,0 +1,5 @@
+export PATH=$PATH:/opt/homebrew/bin:/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin:$HOME/.local/bin
+export EDITOR=nvim
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+export LANG=en_US.UTF-8
