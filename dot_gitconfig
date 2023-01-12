@@ -11,8 +11,8 @@
 [diff "ansible-vault"]
   textconv = ansible-vault view
 [commit]
-	gpgsign = true
+  gpgsign = true
 [tag]
-	gpgsign = true
+  gpgsign = true
 [gpg]
-	format = ssh
+  format = ssh
