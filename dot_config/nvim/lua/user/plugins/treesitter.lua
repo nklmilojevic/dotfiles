@@ -1,0 +1,7 @@
+return {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+        ensure_installed = { "lua", "ruby", "go", "dockerfile", "bash", "python", "css", "html", "rust", "php", "yaml",
+            "toml", "json", "elixir", "gomod", "hcl", "markdown", "regex", "sql", "terraform", "tsx" },
+    },
+}
