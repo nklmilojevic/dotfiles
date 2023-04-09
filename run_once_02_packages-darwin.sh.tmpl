@@ -1,0 +1,189 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+echo "~ homebrew"
+
+brew bundle --quiet --no-lock --file=/dev/stdin <<EOF && echo "~~ brew packages have been updated"
+
+
+# Taps
+
+tap "espanso/espanso"
+tap "fluxcd/tap"
+tap "go-task/tap"
+tap "hashicorp/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "jesseduffield/lazygit"
+tap "johanhaleby/kubetail"
+tap "shivammathur/php"
+tap "teamookla/speedtest"
+tap "weaveworks/tap"
+tap "wez/wezterm"
+tap "yt-dlp/taps"
+
+# Brews
+
+brew "libpng"
+brew "freetype"
+brew "gettext"
+brew "glib"
+brew "libffi"
+brew "pkg-config"
+brew "pixman"
+brew "icu4c"
+brew "openjdk"
+brew "ant"
+brew "aria2"
+brew "arping"
+brew "autoconf"
+brew "automake"
+brew "bash"
+brew "bison"
+brew "bzip2"
+brew "chezmoi"
+brew "cmake"
+brew "gmp"
+brew "qemu"
+brew "colima"
+brew "coreutils"
+brew "dfu-util"
+brew "dive"
+brew "docker"
+brew "docker-compose"
+brew "fd"
+brew "jpeg", link: true
+brew "mbedtls"
+brew "libsodium"
+brew "ffmpeg"
+brew "fop"
+brew "libtool"
+brew "unixodbc"
+brew "gd"
+brew "gh"
+brew "gifsicle"
+brew "git"
+brew "gitleaks"
+brew "glow"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "gnupg"
+brew "graphviz"
+brew "grep"
+brew "htop"
+brew "httrack"
+brew "hub"
+brew "imagemagick"
+brew "imapsync"
+brew "inframap"
+brew "ipcalc"
+brew "jansson"
+brew "jq"
+brew "krb5"
+brew "lazydocker"
+brew "lbzip2"
+brew "libedit"
+brew "libiconv"
+brew "libpq"
+brew "libxml2"
+brew "libxslt"
+brew "libzip"
+brew "lsusb"
+brew "luarocks"
+brew "make"
+brew "mas"
+brew "maven"
+brew "mcrypt"
+brew "midnight-commander"
+brew "mkcert"
+brew "mtr"
+brew "ncdu"
+brew "ninja"
+brew "nmap"
+brew "openssl@3"
+brew "utf8proc"
+brew "tmux"
+brew "overmind"
+brew "parallel"
+brew "pigz"
+brew "pinentry-mac"
+brew "pwgen"
+brew "python@3.10"
+brew "re2c"
+brew "reattach-to-user-namespace"
+brew "restic"
+brew "ripgrep"
+brew "rsync"
+brew "rust-analyzer"
+brew "semtag"
+brew "telnet"
+brew "tflint"
+brew "tldr"
+brew "tree"
+brew "tree-sitter"
+brew "universal-ctags"
+brew "velero"
+brew "watch"
+brew "wget"
+brew "wimlib"
+brew "wxwidgets"
+brew "yq"
+brew "z"
+brew "zlib"
+brew "zsh"
+
+# Third party
+
+brew "go-task/tap/go-task"
+brew "johanhaleby/kubetail/kubetail"
+brew "shivammathur/php/php"
+brew "shivammathur/php/php@8.1", link: true
+brew "teamookla/speedtest/speedtest"
+brew "weaveworks/tap/gitops"
+
+# Casks
+
+cask "1password-cli", args: { force: true }
+cask "espanso", args: { force: true }
+cask "google-cloud-sdk", args: { force: true }
+cask "hammerspoon", args: { force: true }
+cask "karabiner-elements", args: { force: true }
+cask "visual-studio-code", args: { force: true }
+cask "wezterm-nightly", args: { force: true }
+
+# quicklook extensions
+cask "gltfquicklook", args: { force: true }
+cask "provisionql", args: { force: true }
+cask "qladdict", args: { force: true }
+cask "qlcommonmark", args: { force: true }
+cask "qlstephen", args: { force: true }
+cask "quickgeojson", args: { force: true }
+cask "quicklook-csv", args: { force: true }
+
+# mac app store
+mas "Things", id: 904280696
+mas "Pixelmator Pro", id: 1289583905
+mas "Anybox", id: 1593408455
+mas "Invoice Ninja", id: 1503970375
+mas "Telegram", id: 747648890
+mas "Amphetamine", id: 937984704
+mas "HexColor", id: 446103121
+mas "WireGuard", id: 1451685025
+mas "Reeder", id: 1529448980
+mas "Medis", id: 1579200037
+mas "Fantastical", id: 975937182
+mas "Tailscale", id: 1475387142
+mas "Logic Pro", id: 634148309
+mas "Slack", id: 803453959
+mas "NotePlan", id: 1505432629
+mas "Keka", id: 470158793
+
+EOF
+
+/usr/bin/xattr -r -d com.apple.quarantine ~/Library/QuickLook/*.qlgenerator
+qlmanage -r >/dev/null 2>&1 || true && echo "~~ quicklook extensions have been configured"
+
+{{ end -}}
