@@ -1,0 +1,8 @@
+connection "datadog" {
+  plugin = "datadog"
+
+  api_key = "{{ onepasswordRead "op://Private/DataDog API/api_key" "my" }}"
+  app_key = "{{ onepasswordRead "op://Private/DataDog API/app_key" "my" }}"
+
+  api_url = "https://api.datadoghq.eu/"
+}
