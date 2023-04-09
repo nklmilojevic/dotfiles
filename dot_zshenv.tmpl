@@ -3,4 +3,8 @@ export EDITOR=nvim
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 export LANG=en_US.UTF-8
+
+{{- if (eq .chezmoi.os "darwin") -}}
 export SSH_AUTH_SOCK=~/.1password/agent.sock
+export GITHUB_TOKEN={{ onepasswordRead "op://Private/Github Personal Access Token/token" "my" }}
+{{ end -}}
