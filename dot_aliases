@@ -34,3 +34,12 @@ psgrep() {
         echo "!! Need name to grep for"
     fi
 }
+
+asdfv() {
+  if [[ ! $1 ]]; then
+    echo "You must enter a plugin name"
+  else
+    asdf plugin-add $1 || true && asdf list-all $1 |
+      fzf --tac
+  fi
+}
