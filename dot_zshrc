@@ -14,6 +14,7 @@ if ! zgenom saved; then
 
 	zgenom oh-my-zsh
 
+	zgenom oh-my-zsh plugins/asdf
 	zgenom oh-my-zsh plugins/docker
 	zgenom oh-my-zsh plugins/git
 	zgenom oh-my-zsh plugins/helm
@@ -70,6 +71,9 @@ source $HOME/.zsh-highlight
 
 # load z completion
 source $HOME/z.sh
+
+# load 1p plugins
+source $HOME/.config/op/plugins.sh
 
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 setopt EXTENDED_HISTORY
