@@ -1,4 +1,5 @@
-connection "datadog" {
+{{- if (eq .chezmoi.os "darwin") -}}
+onnection "datadog" {
   plugin = "datadog"
 
   api_key = "{{ onepasswordRead "op://Private/DataDog API/api_key" "my" }}"
@@ -6,3 +7,4 @@ connection "datadog" {
 
   api_url = "https://api.datadoghq.eu/"
 }
+{{ end -}}
