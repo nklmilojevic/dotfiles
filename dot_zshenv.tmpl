@@ -3,6 +3,7 @@ export EDITOR=nvim
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 export LANG=en_US.UTF-8
+export ZSH_DISABLE_COMPFIX=true
 
 {{- if (eq .chezmoi.os "darwin") -}}
 export SSH_AUTH_SOCK=~/.1password/agent.sock
