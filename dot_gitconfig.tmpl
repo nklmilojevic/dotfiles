@@ -14,5 +14,7 @@
   gpgsign = true
 [tag]
   gpgsign = true
+{{ if (eq .chezmoi.os "darwin") -}}
 [gpg]
   format = ssh
+{{ end -}}
