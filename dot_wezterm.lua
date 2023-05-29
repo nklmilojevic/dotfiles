@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 local config = {
 	font = wezterm.font_with_fallback({ "PragmataProMonoLiga Nerd Font" }),
@@ -12,6 +13,14 @@ local config = {
 	send_composed_key_when_right_alt_is_pressed = true,
 	window_padding = { left = 10, right = 10, top = 10, bottom = 10 },
 }
+
+wezterm.on("update-right-status", function(window, pane)
+	local name = window:active_key_table()
+	if name then
+		name = "TABLE: " .. name
+	end
+	window:set_right_status(name or "")
+end)
 
 config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
@@ -34,6 +43,49 @@ config.keys = {
 		key = "RightArrow",
 		mods = "LEADER",
 		action = wezterm.action.ActivateTabRelative(1),
+	},
+	{ key = "LeftArrow",  mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
+	-- Make Option-Right equivalent to Alt-f; forward-word
+	{ key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
+	{
+		key = "r",
+		mods = "LEADER",
+		action = act.ActivateKeyTable({
+			name = "resize_pane",
+			one_shot = false,
+		}),
+	},
+	{
+		key = "a",
+		mods = "LEADER",
+		action = act.ActivateKeyTable({
+			name = "activate_pane",
+			timeout_milliseconds = 1000,
+		}),
+	},
+}
+
+config.key_tables = {
+	resize_pane = {
+		{ key = "LeftArrow",  action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "h",          action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "l",          action = act.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "UpArrow",    action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "k",          action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "DownArrow",  action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "j",          action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "Escape",     action = "PopKeyTable" },
+	},
+	activate_pane = {
+		{ key = "LeftArrow",  action = act.ActivatePaneDirection("Left") },
+		{ key = "h",          action = act.ActivatePaneDirection("Left") },
+		{ key = "RightArrow", action = act.ActivatePaneDirection("Right") },
+		{ key = "l",          action = act.ActivatePaneDirection("Right") },
+		{ key = "UpArrow",    action = act.ActivatePaneDirection("Up") },
+		{ key = "k",          action = act.ActivatePaneDirection("Up") },
+		{ key = "DownArrow",  action = act.ActivatePaneDirection("Down") },
+		{ key = "j",          action = act.ActivatePaneDirection("Down") },
 	},
 }
 
