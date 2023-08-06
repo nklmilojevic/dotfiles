@@ -1,4 +1,6 @@
-#source "$(asdf direnv hook asdf)"
+use_rtx() {
+  direnv_load rtx direnv exec
+}
 
 layout_poetry() {
     PYPROJECT_TOML="${PYPROJECT_TOML:-pyproject.toml}"
