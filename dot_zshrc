@@ -4,7 +4,6 @@ fi
 
 DEFAULT_USER="nkl"
 
-
 # load zgenom
 source "${HOME}/.zgenom/zgenom.zsh"
 
@@ -62,10 +61,9 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 export GO111MODULE="on"
 
-# Load asdf and completions
-. $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
+eval "$($HOME/.local/share/rtx/bin/rtx activate zsh)"
 
+eval "$(direnv hook zsh)"
 # Dracula zsh higlight
 source $HOME/.zsh-highlight
 
@@ -75,5 +73,7 @@ source $HOME/z.sh
 # load 1p plugins
 source $HOME/.config/op/plugins.sh
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+# load rtx completion
+source $HOME/.rtx-completion.sh
+
 setopt EXTENDED_HISTORY
