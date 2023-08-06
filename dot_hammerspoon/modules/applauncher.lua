@@ -33,6 +33,7 @@ singleapps = {
 	{ "t", "Telegram" },
 	{ "e", "Sublime Text" },
 	{ "d", "Tidal" },
+	{ "o", "NotePlan" },
 }
 
 for i, app in ipairs(singleapps) do
