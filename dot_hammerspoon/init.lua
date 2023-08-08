@@ -1,4 +1,5 @@
-hs.loadSpoon("WindowHalfsAndThirds")
-
 require("modules/applauncher")
 require("modules/reloader")
+require("modules/windowmgmt")
+require("modules/layout")
+require("modules/skyrocket")
