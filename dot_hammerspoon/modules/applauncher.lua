@@ -26,7 +26,7 @@ singleapps = {
 	{ "n", "Notion" },
 	{ "m", "Mail" },
 	{ "z", "Messages" },
-	{ "f", "Safari" },
+	{ "f", "Orion" },
 	{ "i", "IntelliJ IDEA" },
 	{ "r", "WezTerm" },
 	{ "s", "Spotify" },
