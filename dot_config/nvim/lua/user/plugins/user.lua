@@ -35,6 +35,7 @@ return {
 		end,
 	},
 	"github/copilot.vim",
+	"direnv/direnv.vim",
 	{
 		"alker0/chezmoi.vim",
 		lazy = false,
