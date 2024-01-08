@@ -61,7 +61,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 export GO111MODULE="on"
 
-eval "$($HOME/.local/share/rtx/bin/rtx activate zsh)"
+eval "$($HOME/.local/bin/mise activate zsh)"
 
 eval "$(direnv hook zsh)"
 # Dracula zsh higlight
@@ -73,7 +73,7 @@ source $HOME/z.sh
 # load 1p plugins
 source $HOME/.config/op/plugins.sh
 
-# load rtx completion
-source $HOME/.rtx-completion.sh
+# load mise completion
+source $HOME/.mise-completion.sh
 
 setopt EXTENDED_HISTORY
