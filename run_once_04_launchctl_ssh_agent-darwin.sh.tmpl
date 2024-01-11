@@ -1,0 +1,5 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+launchctl load -w ~/Library/LaunchAgents/com.1password.SSH_AUTH_SOCK.plist
+{{ end -}}
