@@ -45,12 +45,12 @@ style = "#437675"
 [hostname]
 format = '[$hostname]($style) '
 ssh_only = true
-style = "#bd93f9"
+style = "#D69B6F"
 
 [username]
 format = "[$user]($style)@"
 show_always = false
-style_user = "bold #8be9fd"
+style_user = "#D69B6F"
 
 [directory]
 before_repo_root_style = "#00729D"
