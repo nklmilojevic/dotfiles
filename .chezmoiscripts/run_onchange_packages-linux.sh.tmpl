@@ -4,6 +4,8 @@
 sudo apt-add-repository --yes {{ . | quote }}
 {{ end -}}
 
+sudo apt-get update
+
 {{ range .packages.linux.apt -}}
 sudo apt-get install --yes {{ . | quote }}
 {{ end -}}
