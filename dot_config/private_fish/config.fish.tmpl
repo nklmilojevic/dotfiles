@@ -2,10 +2,12 @@
 set -g fish_greeting
 
 # Add correct paths
-fish_add_path $HOME/.local/share/mise/shims
+fish_add_path "{{ .chezmoi.homeDir }}/.local/share/mise/shims"
+fish_add_path "{{ .chezmoi.homeDir }}/.local/bin"
+fish_add_path "{{ .chezmoi.homeDir }}/.krew/bin"
+{{- if (eq .chezmoi.os "darwin") }}
 fish_add_path /opt/homebrew/bin
-fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.krew/bin
+{{ end -}}
 
 # Set envs
 set -gx EDITOR vim
@@ -15,7 +17,7 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 
 {{- if (eq .chezmoi.os "darwin") }}
 set -gx GITHUB_TOKEN {{ onepasswordRead "op://Private/Github Personal Access Token/token" "my" }}
-set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
+set -gx SSH_AUTH_SOCK {{ .chezmoi.homeDir }}//.1password/agent.sock
 set -gx CPPFLAGS -I$(brew --prefix)/include
 set -gx LDFLAGS -L$(brew --prefix)/lib
 {{ end -}}
@@ -28,7 +30,7 @@ alias mkdir 'mkdir -p -v'
 alias ll 'ls -lha'
 
 # Activate mise
-eval "$($HOME/.local/bin/mise activate fish)"
+eval "$({{ .chezmoi.homeDir }}//.local/bin/mise activate fish)"
 
 # Use atuin only for history sync
 atuin init fish --disable-up-arrow --disable-ctrl-r | source
