@@ -48,7 +48,7 @@ ssh_only = true
 style = "#D69B6F"
 
 [username]
-format = "[$user]@($style)"
+format = "[$user@]($style)"
 show_always = false
 style_user = "#D69B6F"
 
