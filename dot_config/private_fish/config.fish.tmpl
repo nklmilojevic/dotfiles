@@ -4,6 +4,7 @@ set -g fish_greeting
 # Add correct paths
 fish_add_path "{{ .chezmoi.homeDir }}/.local/share/mise/shims"
 fish_add_path "{{ .chezmoi.homeDir }}/.local/bin"
+fish_add_path "{{ .chezmoi.homeDir }}/bin"
 fish_add_path "{{ .chezmoi.homeDir }}/.krew/bin"
 {{- if (eq .chezmoi.os "darwin") }}
 fish_add_path /opt/homebrew/bin
