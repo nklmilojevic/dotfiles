@@ -43,9 +43,10 @@ format = '[ $time]($style)'
 style = "#437675"
 
 [hostname]
-format = '[$ssh_symbol$hostname]($style) '
+format = '[$hostname]($style) '
 ssh_only = true
 style = "#bd93f9"
+
 [username]
 format = "[$user]($style)@"
 show_always = false
