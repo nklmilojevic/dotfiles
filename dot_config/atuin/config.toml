@@ -1,0 +1,20 @@
+dialect = "uk"
+enter_accept = false
+inline_height = 40
+search_mode = "skim"
+show_help = false
+style = "auto"
+sync_address = "https://atuin.milojevic.dev"
+update_check = false
+
+[stats]
+common_subcommands = [
+  "cargo",
+  "go",
+  "git",
+  "npm",
+  "yarn",
+  "pnpm",
+  "kubectl",
+  "gcloud",
+]
