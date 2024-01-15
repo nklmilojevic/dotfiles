@@ -17,8 +17,9 @@ set -gx LC_ALL en_US.UTF-8
 set -gx XDG_CONFIG_HOME $HOME/.config
 
 {{- if (eq .chezmoi.os "darwin") }}
+set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx GITHUB_TOKEN {{ onepasswordRead "op://Private/Github Personal Access Token/token" "my" }}
-set -gx SSH_AUTH_SOCK {{ .chezmoi.homeDir }}//.1password/agent.sock
+set -gx SSH_AUTH_SOCK {{ .chezmoi.homeDir }}/.1password/agent.sock
 set -gx CPPFLAGS -I$(brew --prefix)/include
 set -gx LDFLAGS -L$(brew --prefix)/lib
 {{ end -}}
@@ -33,8 +34,22 @@ alias ll 'ls -lha'
 # Activate mise
 eval "$({{ .chezmoi.homeDir }}//.local/bin/mise activate fish)"
 
+# Init direnv
+if type -q direnv
+    direnv hook fish | source
+end
+
 # Use atuin only for history sync
-atuin init fish --disable-up-arrow --disable-ctrl-r | source
+if type -q atuin
+  atuin init fish --disable-up-arrow --disable-ctrl-r | source
+end
 
 # Use starship theme
-starship init fish | source
+if type -q starship
+  starship init fish | source
+end
+
+# Zoxide init
+if type -q zoxide
+    zoxide init fish | source
+end
