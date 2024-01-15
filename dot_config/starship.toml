@@ -26,7 +26,8 @@ style = "#f1fa8c"
 
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
-style = "#ff79c6"
+style = "#00D900"
+symbol = " "
 
 [git_status]
 style = "#ff5555"
