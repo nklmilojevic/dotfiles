@@ -2,7 +2,9 @@
 
 add_newline = false
 
-format = """$directory\
+format = """$username\
+  $hostname\
+  $directory\
   $git_branch\
   $git_commit\
   $git_state\
@@ -12,7 +14,6 @@ format = """$directory\
 """
 
 right_format = """\
-  $username\
   $kubernetes\
   $python\
   $cmd_duration\
@@ -42,11 +43,11 @@ format = '[ $time]($style)'
 style = "#437675"
 
 [hostname]
-ssh_symbol = " "
-style = "bold #bd93f9"
-
+format = '[$ssh_symbol$hostname]($style) '
+ssh_only = true
+style = "#bd93f9"
 [username]
-format = "[$user]($style) on "
+format = "[$user]($style)@"
 show_always = false
 style_user = "bold #8be9fd"
 
