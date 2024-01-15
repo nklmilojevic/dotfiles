@@ -1,6 +1,9 @@
 # Disable fish greeting
 set -g fish_greeting
 
+# Set Dracula theme
+fish_config theme choose "Dracula Official"
+
 # Add correct paths
 fish_add_path "{{ .chezmoi.homeDir }}/.local/share/mise/shims"
 fish_add_path "{{ .chezmoi.homeDir }}/.local/bin"
