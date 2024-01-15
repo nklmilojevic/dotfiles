@@ -20,8 +20,8 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx GITHUB_TOKEN {{ onepasswordRead "op://Private/Github Personal Access Token/token" "my" }}
 set -gx SSH_AUTH_SOCK {{ .chezmoi.homeDir }}/.1password/agent.sock
-set -gx CPPFLAGS -I$(brew --prefix)/include
-set -gx LDFLAGS -L$(brew --prefix)/lib
+set -gx CPPFLAGS -I/opt/homebrew/include
+set -gx LDFLAGS -L/opt/homebrew/lib
 {{ end }}
 
 # Set aliases
