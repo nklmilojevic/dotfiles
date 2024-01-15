@@ -3,161 +3,41 @@
 
 echo "~ homebrew"
 
-brew bundle --quiet --no-lock --file=/dev/stdin <<EOF && echo "~~ brew packages have been updated"
+brew bundle --no-lock --no-upgrade --file=/dev/stdin <<EOF
+{{- if .packages.darwin.taps }}
+# Global taps
+{{ range .packages.darwin.taps -}}
+tap "{{ . }}"
+{{ end }}
+{{ end }}
 
+{{- if .packages.darwin.brews }}
+# Global packages
+{{ range .packages.darwin.brews -}}
+brew "{{ . }}"
+{{ end }}
+{{ end }}
 
-# Taps
+{{- if .packages.darwin.thirdparty }}
+# Global packages
+{{ range .packages.darwin.thirdparty -}}
+brew "{{ . }}"
+{{ end }}
+{{ end }}
 
-tap "fluxcd/tap"
-tap "go-task/tap"
-tap "hashicorp/tap"
-tap "homebrew/bundle"
-tap "homebrew/services"
-tap "shivammathur/php"
-tap "teamookla/speedtest"
-tap "weaveworks/tap"
-tap "wez/wezterm"
-tap "yt-dlp/taps"
+{{- if .packages.darwin.casks }}
+# Global casks
+{{ range .packages.darwin.casks -}}
+cask "{{ . }}"
+{{ end }}
+{{ end }}
 
-# Brews
-
-brew "libpng"
-brew "freetype"
-brew "gettext"
-brew "glib"
-brew "libffi"
-brew "pkg-config"
-brew "pixman"
-brew "icu4c"
-brew "ant"
-brew "aria2"
-brew "arping"
-brew "autoconf"
-brew "automake"
-brew "bash"
-brew "bison"
-brew "bzip2"
-brew "cmake"
-brew "gmp"
-brew "coreutils"
-brew "dfu-util"
-brew "dive"
-brew "docker"
-brew "docker-compose"
-brew "fd"
-brew "jpeg", link: true
-brew "mbedtls"
-brew "libsodium"
-brew "fish"
-brew "ffmpeg"
-brew "fop"
-brew "libtool"
-brew "unixodbc"
-brew "gd"
-brew "gh"
-brew "gifsicle"
-brew "git"
-brew "gnu-sed"
-brew "gnu-tar"
-brew "gnupg"
-brew "graphviz"
-brew "grep"
-brew "htop"
-brew "httrack"
-brew "hub"
-brew "imagemagick"
-brew "imapsync"
-brew "inframap"
-brew "ipcalc"
-brew "jansson"
-brew "jq"
-brew "krb5"
-brew "lazydocker"
-brew "lbzip2"
-brew "libedit"
-brew "libiconv"
-brew "libpq"
-brew "libxml2"
-brew "libxslt"
-brew "libzip"
-brew "lsusb"
-brew "luarocks"
-brew "make"
-brew "mas"
-brew "maven"
-brew "mcrypt"
-brew "midnight-commander"
-brew "mkcert"
-brew "mtr"
-brew "ncdu"
-brew "ninja"
-brew "nmap"
-brew "openssl@3"
-brew "utf8proc"
-brew "overmind"
-brew "parallel"
-brew "pigz"
-brew "pinentry-mac"
-brew "pwgen"
-brew "re2c"
-brew "reattach-to-user-namespace"
-brew "restic"
-brew "rsync"
-brew "telnet"
-brew "tree"
-brew "tree-sitter"
-brew "universal-ctags"
-brew "velero"
-brew "watch"
-brew "wget"
-brew "wimlib"
-brew "wxwidgets"
-brew "yq"
-brew "zlib"
-brew "hidapi"
-
-# Third party
-
-brew "go-task/tap/go-task"
-brew "johanhaleby/kubetail/kubetail"
-brew "shivammathur/php/php"
-brew "shivammathur/php/php@8.1", link: true
-brew "teamookla/speedtest/speedtest"
-brew "weaveworks/tap/gitops"
-
-# Casks
-
-cask "1password-cli", args: { force: true }
-cask "hammerspoon", args: { force: true }
-cask "karabiner-elements", args: { force: true }
-cask "visual-studio-code", args: { force: true }
-
-# quicklook extensions
-cask "gltfquicklook", args: { force: true }
-cask "provisionql", args: { force: true }
-cask "qladdict", args: { force: true }
-cask "qlcommonmark", args: { force: true }
-cask "qlstephen", args: { force: true }
-cask "quickgeojson", args: { force: true }
-cask "quicklook-csv", args: { force: true }
-
-# mac app store
-mas "Things", id: 904280696
-mas "Pixelmator Pro", id: 1289583905
-mas "Anybox", id: 1593408455
-mas "Invoice Ninja", id: 1503970375
-mas "Telegram", id: 747648890
-mas "Amphetamine", id: 937984704
-mas "HexColor", id: 446103121
-mas "WireGuard", id: 1451685025
-mas "Reeder", id: 1529448980
-mas "Fantastical", id: 975937182
-mas "Tailscale", id: 1475387142
-mas "Logic Pro", id: 634148309
-mas "Slack", id: 803453959
-mas "NotePlan", id: 1505432629
-mas "Keka", id: 470158793
-
+{{- if .packages.darwin.mas }}
+# Global app store apps
+{{ range .packages.darwin.mas -}}
+mas "{{ .name }}", id: {{ .id }}
+{{ end }}
+{{ end }}
 EOF
 
 /usr/bin/xattr -r -d com.apple.quarantine ~/Library/QuickLook/*.qlgenerator
