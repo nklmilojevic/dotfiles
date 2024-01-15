@@ -1,4 +1,5 @@
 {{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
 
 {{ range .packages.linux.ppa -}}
 sudo apt-add-repository --yes {{ . | quote }}
