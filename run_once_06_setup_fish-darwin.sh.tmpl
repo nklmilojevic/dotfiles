@@ -1,0 +1,9 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/fish
+
+{{ end -}}

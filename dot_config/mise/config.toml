@@ -1,0 +1,21 @@
+[tools]
+"cargo:atuin" = "latest"
+"cargo:cargo-binstall" = "latest"
+flux2 = "latest"
+fzf = "latest"
+gcloud = "455.0.0"
+k9s = "latest"
+kubectl = "latest"
+neovim = "0.9.4"
+node = "latest"
+php = "system"
+python = "3.12.0"
+ruby = "latest"
+rust = "latest"
+starship = "latest"
+task = "latest"
+terraform = "1.6.6"
+
+[settings]
+experimental = true
+legacy_version_file = false

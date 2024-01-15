@@ -1,0 +1,17 @@
+.config/fish/conf.d
+.config/fish/fish_variables
+
+# Ignore fish functions from fisher.
+.config/fish/functions/fish*
+.config/fish/functions/_*
+.config/fish/functions/bass.fish
+.config/fish/functions/extract.fish
+.config/fish/functions/fzf*
+.config/fish/functions/git*
+.config/fish/functions/x.fish
+
+# Ignore fish completions from fisher.
+.config/fish/completions/direnv.fish
+.config/fish/completions/fisher.fish
+.config/fish/completions/fzf_configure_bindings.fish
+

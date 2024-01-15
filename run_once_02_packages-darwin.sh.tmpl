@@ -8,14 +8,10 @@ brew bundle --quiet --no-lock --file=/dev/stdin <<EOF && echo "~~ brew packages 
 
 # Taps
 
-tap "espanso/espanso"
 tap "fluxcd/tap"
 tap "go-task/tap"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "jesseduffield/lazygit"
 tap "johanhaleby/kubetail"
@@ -44,11 +40,8 @@ brew "automake"
 brew "bash"
 brew "bison"
 brew "bzip2"
-brew "chezmoi"
 brew "cmake"
 brew "gmp"
-brew "qemu"
-brew "colima"
 brew "coreutils"
 brew "dfu-util"
 brew "dive"
@@ -58,6 +51,7 @@ brew "fd"
 brew "jpeg", link: true
 brew "mbedtls"
 brew "libsodium"
+brew "fish"
 brew "ffmpeg"
 brew "fop"
 brew "libtool"
@@ -111,7 +105,6 @@ brew "parallel"
 brew "pigz"
 brew "pinentry-mac"
 brew "pwgen"
-brew "python@3.10"
 brew "re2c"
 brew "reattach-to-user-namespace"
 brew "restic"
@@ -120,8 +113,6 @@ brew "rsync"
 brew "rust-analyzer"
 brew "semtag"
 brew "telnet"
-brew "tflint"
-brew "tldr"
 brew "tree"
 brew "tree-sitter"
 brew "universal-ctags"
@@ -133,7 +124,6 @@ brew "wxwidgets"
 brew "yq"
 brew "z"
 brew "zlib"
-brew "zsh"
 brew "hidapi"
 
 # Third party
@@ -148,12 +138,9 @@ brew "weaveworks/tap/gitops"
 # Casks
 
 cask "1password-cli", args: { force: true }
-cask "espanso", args: { force: true }
-cask "google-cloud-sdk", args: { force: true }
 cask "hammerspoon", args: { force: true }
 cask "karabiner-elements", args: { force: true }
 cask "visual-studio-code", args: { force: true }
-cask "wezterm-nightly", args: { force: true }
 
 # quicklook extensions
 cask "gltfquicklook", args: { force: true }
