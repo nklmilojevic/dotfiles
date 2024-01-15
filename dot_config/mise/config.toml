@@ -1,12 +1,10 @@
 [tools]
-"cargo:atuin" = "latest"
-"cargo:cargo-binstall" = "latest"
 flux2 = "latest"
 fzf = "latest"
-gcloud = "455.0.0"
+gcloud = "latest"
 k9s = "latest"
 kubectl = "latest"
-neovim = "0.9.4"
+neovim = "latest"
 node = "latest"
 php = "system"
 python = "3.12.0"
@@ -23,6 +21,9 @@ go = "1.20.4"
 direnv = "latest"
 gitleaks = "latest"
 ripgrep = "latest"
+age = "latest"
+shfmt = "latest"
+atuin = "latest"
 
 [settings]
 experimental = true
