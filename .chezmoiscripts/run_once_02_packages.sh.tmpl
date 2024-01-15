@@ -43,4 +43,19 @@ EOF
 /usr/bin/xattr -r -d com.apple.quarantine ~/Library/QuickLook/*.qlgenerator
 qlmanage -r >/dev/null 2>&1 || true && echo "~~ quicklook extensions have been configured"
 
+
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+{{ range .packages.linux.ppa -}}
+sudo apt-add-repository --yes {{ . | quote }}
+{{ end -}}
+
+sudo apt-get update
+
+{{ range .packages.linux.apt -}}
+sudo apt-get install --yes {{ . | quote }}
+{{ end -}}
+
+{{ end -}}
 {{ end -}}
