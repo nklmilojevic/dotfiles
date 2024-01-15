@@ -1,0 +1,103 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """$directory\
+  $git_branch\
+  $git_commit\
+  $git_state\
+  $git_status\
+  $git_metrics\
+  $character\
+"""
+
+right_format = """\
+  $username\
+  $kubernetes\
+  $python\
+  $cmd_duration\
+  $time\
+"""
+
+[cmd_duration]
+format = '[$duration]($style) '
+style = "#f1fa8c"
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "#ff79c6"
+
+[git_status]
+style = "#ff5555"
+
+[git_metrics]
+added_style = 'blue'
+deleted_style = "red"
+disabled = false
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[time]
+disabled = false
+format = '[ $time]($style)'
+style = "#437675"
+
+[hostname]
+ssh_symbol = " "
+style = "bold #bd93f9"
+
+[username]
+format = "[$user]($style) on "
+show_always = false
+style_user = "bold #8be9fd"
+
+[directory]
+before_repo_root_style = "#00729D"
+disabled = false
+home_symbol = " "
+read_only = " "
+repo_root_style = "bold #1D98E8"
+truncate_to_repo = false
+truncation_length = 8
+
+[character]
+error_symbol = '[✗](bold red) '
+
+[kubernetes]
+disabled = false
+format = '[⎈ $context( \($namespace\))]($style) '
+style = "dimmed blue"
+
+[python]
+disabled = false
+style = "dimmed yellow"
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = "󰏗 "
+
+[php]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
