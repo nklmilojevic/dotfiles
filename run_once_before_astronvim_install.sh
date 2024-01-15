@@ -7,4 +7,6 @@ mkdir $HOME/.config/nvim
 
 mv $HOME/astronvim/{.,}* $HOME/.config/nvim
 
+nvim --headless +qa
+
 echo "~ astronvim has been installed"
