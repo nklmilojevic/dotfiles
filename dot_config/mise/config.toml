@@ -15,6 +15,14 @@ rust = "latest"
 starship = "latest"
 task = "latest"
 terraform = "1.6.6"
+zoxide = "latest"
+helm = "latest"
+lazygit = "latest"
+kubectx = "latest"
+go = "1.20.4"
+direnv = "latest"
+gitleaks = "latest"
+ripgrep = "latest"
 
 [settings]
 experimental = true
