@@ -1,0 +1,11 @@
+{{- if (eq .chezmoi.os "linux") -}}
+
+{{ range .packages.linux.ppa -}}
+sudo apt-add-repository --yes {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.linux.apt -}}
+sudo apt-get install --yes {{ . | quote }}
+{{ end -}}
+
+{{ end -}}

@@ -1,0 +1,7 @@
+packages:
+  linux:
+    ppa:
+      - "ppa:fish-shell/release-3"
+    apt:
+      - "fish"
+      - "build-essential"
