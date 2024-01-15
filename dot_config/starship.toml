@@ -63,6 +63,7 @@ truncation_length = 8
 
 [character]
 error_symbol = '[✗](bold red) '
+success_symbol = '[❯](green)'
 
 [kubernetes]
 disabled = false
