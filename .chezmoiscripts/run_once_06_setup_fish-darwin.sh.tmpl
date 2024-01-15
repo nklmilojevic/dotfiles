@@ -6,4 +6,8 @@ set -euo pipefail
 echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
 chsh -s /opt/homebrew/bin/fish
 
+{{ else if eq .chezmoi.os "linux" }}
+
+sudo -u nkl chsh -s /usr/bin/fish
+
 {{ end -}}
