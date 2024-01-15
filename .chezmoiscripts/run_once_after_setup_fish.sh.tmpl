@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-{{- if (eq .chezmoi.os "darwin") -}}
+{{ if (eq .chezmoi.os "darwin") }}
 echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
 chsh -s /opt/homebrew/bin/fish
 
@@ -9,4 +8,4 @@ chsh -s /opt/homebrew/bin/fish
 
 sudo -u nkl chsh -s /usr/bin/fish
 
-{{ end -}}
+{{ end }}
