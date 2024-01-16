@@ -1,5 +1,5 @@
 require("modules/reloader")
--- require("modules/windowmgmt")
+require("modules/windowmgmt")
 require("modules/layout")
 require("modules/skyrocket")
--- require("modules/applauncher")
+require("modules/applauncher")

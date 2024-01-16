@@ -1,7 +1,6 @@
 macbook = {
   { "Firefox Developer Edition", nil, nil, hs.layout.maximized, nil, nil },
   { "Safari",                    nil, nil, hs.layout.maximized, nil, nil },
-  { "Orion",                     nil, nil, hs.layout.maximized, nil, nil },
   { "Brave Browser",             nil, nil, hs.layout.maximized, nil, nil },
   { "WezTerm",                   nil, nil, hs.layout.maximized, nil, nil },
   { "Slack",                     nil, nil, hs.layout.maximized, nil, nil },
@@ -21,7 +20,6 @@ macbook = {
 dell = {
   { "Firefox Developer Edition", nil,        nil, hs.layout.left50,  nil, nil },
   { "Safari",                    nil,        nil, hs.layout.left50,  nil, nil },
-  { "Orion",                     nil,        nil, hs.layout.left50,  nil, nil },
   { "Brave Browser",             nil,        nil, hs.layout.left50,  nil, nil },
   { "WezTerm",                   nil,        nil, hs.layout.right50, nil, nil },
   { "Slack",                     nil,        nil, hs.layout.left50,  nil, nil },

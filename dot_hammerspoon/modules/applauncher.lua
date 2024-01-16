@@ -1,44 +1,21 @@
-k = hs.hotkey.modal.new({}, "F17")
+hs.loadSpoon("AppLauncher")
 
-pressedF18 = function()
-	k.triggered = false
-	k:enter()
-end
+local hyper = { "ctrl", "alt", "cmd", "shift" }
 
-releasedF18 = function()
-	k:exit()
-	if not k.triggered then
-		hs.eventtap.keyStroke({}, "ESCAPE")
-	end
-end
+spoon.AppLauncher.modifiers = hyper
 
-f18 = hs.hotkey.bind({}, "F18", pressedF18, releasedF18)
-
-launch = function(appname)
-	hs.application.launchOrFocus(appname)
-	k.triggered = true
-end
-
-singleapps = {
-	{ "c", "Slack" },
-	{ "a", "Visual Studio Code" },
-	{ "b", "Bear" },
-	{ "n", "Notion" },
-	{ "m", "Mail" },
-	{ "z", "Messages" },
-	{ "f", "Brave Browser" },
-	{ "i", "IntelliJ IDEA" },
-	{ "r", "WezTerm" },
-	{ "s", "Spotify" },
-	{ "t", "Telegram" },
-	{ "e", "Sublime Text" },
-	{ "d", "Tidal" },
-	{ "o", "NotePlan" },
-}
-
-for i, app in ipairs(singleapps) do
-	k:bind({}, app[1], function()
-		launch(app[2])
-		k:exit()
-	end)
-end
+hs.spoons.use("AppLauncher", {
+    hotkeys = {
+        c = "Slack",
+        v = "Visual Studio Code",
+        n = "NotePlan",
+        m = "Mail",
+        z = "Messages",
+        f = "Brave Browser",
+        i = "IntelliJ IDEA",
+        r = "WezTerm",
+        s = "Spotify",
+        t = "Telegram",
+        d = "Discord",
+    },
+})

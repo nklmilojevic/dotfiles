@@ -1,13 +1,13 @@
-hs.loadSpoon("WindowHalfsAndThirds")
-hs.window.animationDuration = 0
+hs.loadSpoon("MiroWindowsManager")
 
-spoon.WindowHalfsAndThirds:bindHotkeys({
-  left_half = { { "ctrl", "cmd" }, "Left" },
-  right_half = { { "ctrl", "cmd" }, "Right" },
-  top_half = { { "ctrl", "cmd" }, "Up" },
-  bottom_half = { { "ctrl", "cmd" }, "Down" },
-  third_left = { { "ctrl", "alt" }, "Left" },
-  third_right = { { "ctrl", "alt" }, "Right" },
-  max = { { "ctrl", "cmd" }, "f" },
-  center = { { "ctrl", "shift", "cmd" }, "c" },
+local hyper = { "ctrl", "alt", "cmd", "shift" }
+
+hs.window.animationDuration = 0
+spoon.MiroWindowsManager:bindHotkeys({
+  up = { hyper, "up" },
+  right = { hyper, "right" },
+  down = { hyper, "down" },
+  left = { hyper, "left" },
+  fullscreen = { hyper, "return" },
+  nextscreen = { hyper, "n" },
 })
