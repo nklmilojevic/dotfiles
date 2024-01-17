@@ -55,6 +55,7 @@ style_user = "#D69B6F"
 
 [directory]
 before_repo_root_style = "#0078A2"
+style = "#0078A2"
 disabled = false
 home_symbol = " "
 read_only = " "
@@ -63,7 +64,7 @@ truncate_to_repo = false
 truncation_length = 8
 
 [character]
-error_symbol = '[✗](bold red) '
+error_symbol = '[✗](bold red)'
 success_symbol = '[❯](green)'
 
 [kubernetes]
