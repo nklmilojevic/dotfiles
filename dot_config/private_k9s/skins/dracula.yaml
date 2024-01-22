@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Dracula skin
+# -----------------------------------------------------------------------------
+
 # Styles...
 foreground: &foreground "#f8f8f2"
 background: &background "#22212c"
@@ -12,7 +16,6 @@ purple: &purple "#bd93f9"
 red: &red "#ff5555"
 yellow: &yellow "#f1fa8c"
 
-# Skin...
 k9s:
   # General K9s styles
   body:
@@ -59,7 +62,7 @@ k9s:
       modifyColor: *purple
       addColor: *green
       errorColor: *red
-      highlightcolor: *orange
+      highlightColor: *orange
       killColor: *comment
       completedColor: *comment
     # Border title styles.
@@ -83,8 +86,6 @@ k9s:
     table:
       fgColor: *foreground
       bgColor: *background
-      cursorFgColor: *foreground
-      cursorBgColor: *current_line
       # Header row styles.
       header:
         fgColor: *foreground
@@ -109,3 +110,5 @@ k9s:
       indicator:
         fgColor: *foreground
         bgColor: *purple
+        toggleOnColor: *green
+        toggleOffColor: *cyan
