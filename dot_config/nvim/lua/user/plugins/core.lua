@@ -87,7 +87,7 @@ return {
                     status.component.separated_path({ path_func = status.provider.filename({ modify = ":.:h" }) }),
                     -- add the file name and icon
                     status.component.file_info({
-                                  -- add file_info to breadcrumbs
+                        -- add file_info to breadcrumbs
                         file_icon = { hl = status.hl.filetype_color, padding = { left = 0 } },
                         file_modified = false,
                         file_read_only = false,
