@@ -1,5 +1,5 @@
 customCommands:
-  - key: "<c-c>"
+  - key: "<c-u>"
     prompts:
       - type: "input"
         title: "Commit"
