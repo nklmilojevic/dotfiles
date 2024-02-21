@@ -1,7 +1,7 @@
 dialect = "uk"
 enter_accept = false
 inline_height = 40
-search_mode = "skim"
+search_mode = "fuzzy"
 show_help = false
 style = "auto"
 sync_address = "https://atuin.milojevic.dev"
