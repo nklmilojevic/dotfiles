@@ -17,7 +17,7 @@ zoxide = "latest"
 helm = "latest"
 lazygit = "latest"
 kubectx = "latest"
-go = "1.21"
+go = "1.22"
 direnv = "latest"
 gitleaks = "latest"
 ripgrep = "latest"
@@ -27,6 +27,7 @@ atuin = "latest"
 stern = "1.28.0"
 pre-commit = "latest"
 clickhouse = "latest"
+skaffold = "latest"
 
 [settings]
 experimental = true
