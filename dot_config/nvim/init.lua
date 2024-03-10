@@ -3,6 +3,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- disable cmd height
+vim.opt.cmdheight = 0
+
 -- Make line numbers default
 vim.opt.number = true
 
