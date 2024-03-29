@@ -12,9 +12,7 @@ common_subcommands = [
   "cargo",
   "go",
   "git",
-  "npm",
-  "yarn",
-  "pnpm",
   "kubectl",
+  "k",
   "gcloud",
 ]
