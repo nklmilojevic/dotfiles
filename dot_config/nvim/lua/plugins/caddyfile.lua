@@ -1,4 +1,3 @@
 return {
-	'isobit/vim-caddyfile',
-	lazy = false,
+  "isobit/vim-caddyfile",
 }

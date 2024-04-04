@@ -1,4 +1,3 @@
 return {
-  'direnv/direnv.vim',
-  lazy = false,
+  "direnv/direnv.vim",
 }
