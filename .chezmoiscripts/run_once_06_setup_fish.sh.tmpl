@@ -6,6 +6,6 @@ chsh -s /opt/homebrew/bin/fish
 
 {{ else if eq .chezmoi.os "linux" }}
 
-sudo -u nkl chsh -s /usr/bin/fish
+sudo -u {{ .chezmoi.username }} chsh -s /usr/bin/fish
 
 {{ end }}
