@@ -39,6 +39,7 @@ return {
         },
         ["<Leader>b"] = { desc = "Buffers" },
         ["<Leader>P"] = { ":Telescope projects<cr>", desc = "Telescope Projects" },
+        ["<Leader>gb"] = { ":ToggleBlame<cr>", desc = "Toggle Git Blame" },
       },
     },
   },

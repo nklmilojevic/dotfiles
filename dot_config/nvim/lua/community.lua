@@ -7,6 +7,11 @@ return {
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.project.nvim-spectre" },
+  { import = "astrocommunity.editing-support.chatgpt-nvim" },
+  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+  { import = "astrocommunity.git.blame-nvim" },
+  { import = "astrocommunity.indent.indent-blankline-nvim" },
+  { import = "astrocommunity.indent.mini-indentscope" },
   {
     -- further customize the options set by the community
     "zbirenbaum/copilot.lua",

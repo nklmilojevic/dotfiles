@@ -9,9 +9,10 @@ fish_add_path "{{ .chezmoi.homeDir }}/.local/share/mise/shims"
 fish_add_path "{{ .chezmoi.homeDir }}/.local/bin"
 fish_add_path "{{ .chezmoi.homeDir }}/bin"
 fish_add_path "{{ .chezmoi.homeDir }}/.krew/bin"
-{{- if (eq .chezmoi.os "darwin") }}
-fish_add_path /opt/homebrew/bin
-{{ end }}
+
+{{- if stat (joinPath .chezmoi.homeDir ".config/sops/age/keys.txt") }}
+set -gx SOPS_AGE_KEY_FILE {{ .chezmoi.homeDir }}/.config/sops/age/keys.txt
+{{- end }}
 
 # Set envs
 set -gx EDITOR vim
@@ -54,6 +55,13 @@ alias wezupdate 'brew upgrade --cask wez/wezterm/wezterm-nightly --no-quarantine
 
 # Activate mise
 eval "$({{ .chezmoi.homeDir }}/.local/bin/mise activate fish)"
+
+# Activate homebrew
+{{- if lookPath "/opt/homebrew/bin/brew" }}
+if status --is-interactive
+    eval (/opt/homebrew/bin/brew shellenv)
+end
+{{- end }}
 
 # Init direnv
 if type -q direnv

@@ -28,6 +28,11 @@ pre-commit = "latest"
 clickhouse = "latest"
 skaffold = "latest"
 hugo = "extended_0.102.3"
+"cargo:cargo-binstall" = "latest"
+"cargo:eza" = "latest"
+"cargo:gping" = "latest"
+"cargo:lsd" = "latest"
+sops = "3.7.3"
 
 [settings]
 experimental = true
