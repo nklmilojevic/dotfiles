@@ -7,3 +7,7 @@ customCommands:
     command: git commit -m "{{index .PromptResponses 0}}" --no-verify
     context: "global"
     subprocess: true
+  - key: "<c-a>"
+    command: aicommits -t conventional -g 2
+    context: "global"
+    subprocess: true
