@@ -1,0 +1,5 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+OPENAI_KEY={{ onepasswordRead "op://Private/OpenAI key/apikey" "my" }}
+generate=2
+type=conventional
+{{ end -}}
