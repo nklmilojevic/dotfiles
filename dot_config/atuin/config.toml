@@ -16,3 +16,6 @@ common_subcommands = [
   "k",
   "gcloud",
 ]
+
+[sync]
+records = true
