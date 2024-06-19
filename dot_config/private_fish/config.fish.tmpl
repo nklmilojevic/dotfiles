@@ -5,7 +5,6 @@ set -g fish_greeting
 fish_config theme choose "Dracula Official"
 
 # Add correct paths
-fish_add_path "{{ .chezmoi.homeDir }}/.local/share/mise/shims"
 fish_add_path "{{ .chezmoi.homeDir }}/.local/bin"
 fish_add_path "{{ .chezmoi.homeDir }}/bin"
 fish_add_path "{{ .chezmoi.homeDir }}/.krew/bin"
@@ -26,15 +25,13 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx GITHUB_TOKEN {{ onepasswordRead "op://Private/Github Personal Access Token/token" "my" }}
 set -gx OPENAI_API_KEY {{ onepasswordRead "op://Private/OpenAI key/apikey" "my" }}
 set -gx SSH_AUTH_SOCK {{ .chezmoi.homeDir }}/.1password/agent.sock
-set -gx CPPFLAGS -I/opt/homebrew/include
-set -gx LDFLAGS -L/opt/homebrew/lib
 {{ end }}
 
 # theme setup
 set -gx tide_pwd_icon " "
 set -gx tide_pwd_icon_home " "
 set -gx tide_left_prompt_items context pwd git character
-set -gx tide_right_prompt_items status cmd_duration jobs direnv node python ruby go gcloud kubectl terraform elixir time
+set -gx tide_right_prompt_items status cmd_duration jobs direnv nix_shell python ruby go gcloud kubectl terraform elixir time
 set -gx tide_show_kubectl_on kubectl helm kubens k kubectx stern
 set -gx tide_show_gcloud_on gcloud
 set -gx tide_kubectl_icon "⎈"
@@ -51,17 +48,6 @@ alias mkdir 'mkdir -p -v'
 alias ll 'ls -lha'
 alias lg 'lazygit'
 alias grep 'rg'
-alias wezupdate 'brew upgrade --cask wez/wezterm/wezterm-nightly --no-quarantine --greedy-latest'
-
-# Activate mise
-eval "$({{ .chezmoi.homeDir }}/.local/bin/mise activate fish)"
-
-# Activate homebrew
-{{- if lookPath "/opt/homebrew/bin/brew" }}
-if status --is-interactive
-    eval (/opt/homebrew/bin/brew shellenv)
-end
-{{- end }}
 
 # Init direnv
 if type -q direnv
@@ -76,4 +62,7 @@ end
 # Zoxide init
 if type -q zoxide
     zoxide init fish | source
+end
+if command -q nix-your-shell
+  nix-your-shell fish | source
 end

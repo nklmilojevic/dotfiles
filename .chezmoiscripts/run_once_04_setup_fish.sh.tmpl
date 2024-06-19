@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+{{ if eq .chezmoi.os "linux" }}
+
+sudo -u {{ .chezmoi.username }} chsh -s /usr/bin/fish
+
+{{ end }}

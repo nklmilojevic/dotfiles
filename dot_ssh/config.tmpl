@@ -1,1 +1,3 @@
+{{- if (eq .chezmoi.os "darwin") -}}
 {{ onepasswordRead "op://Private/SSH Config/notesPlain" "my" }}
+{{ end -}}
