@@ -1,4 +1,6 @@
-# dotfiles
+# I moved to nix, so archiving this.
+
+## dotfiles
 
 My dotfiles repo managed by chezmoi.
 
